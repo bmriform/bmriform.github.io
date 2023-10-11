@@ -1,12 +1,219 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>hallo</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRseiFWEHrVjZAmLE4jg4A7J7LJ_FtD20-qSbn5vYv07Ot05uV7Q6nTrBb_1J9d_Y7UJGU&usqp=CAU" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
+    <link href="https://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.min.css"
+      integrity="sha512-k+xZuzf4IaGQK9sSDjaNyrfwgxBfoF++7u6Q0ZVUs2rDczx9doNZkYXyyQbnJQcMR4o+IjvAcIj69hHxiOZEig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .step {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hallo world</h1>
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <div class="card">
+            <div class="card-body">
+              <div class="app-brand justify-content-center">
+                <a href="#" class="app-brand-link gap-2">
+                  <span class="app-brand-logo demo">
+                    <img src="https://bankmandiri.co.id/image/layout_set_logo?img_id=31567&t=1696784611939" alt="logo mandiri" width="200" />
+                  </span>
+                </a>
+              </div>
+
+              <h4 class="mb-2 text-center">Form KSM Whitelist - BMRI</h4>
+
+              <p class="mb-4 text-justify">Formulir ini digunakan oleh Cabang sebagai sarana untuk melaporkan status dan perkembangan terkait proses akuisisi Whitelist Kredit Serbaguna Mandiri (KSM) kepada kantor pusat.</p>
+              <form id="formAuthentication" class="mb-3" action="https://bmri.pullpick.com/post/posting-report" method="POST" enctype="multipart/form-data">
+                <!-- Step 1: Cabang -->
+                <div class="step">
+                  <div class="mb-3">
+                    <label for="cabangSelect" class="form-label">KODE CABANG <span class="text-danger">*</span></label>
+                    <select class="form-control" name="cabang" id="cabangSelect">
+                      <option value="" selected disabled>Pilih Cabang</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="namacabang" class="form-label">NAMA CABANG <span class="text-danger">*</span></label>
+                    <input type="text" id="namacabang" name="namacabang" class="form-control" readonly />
+                  </div>
+                  <div class="mb-3">
+                    <label for="areacabang" class="form-label">AREA CABANG <span class="text-danger">*</span></label>
+                    <input type="text" id="areacabang" name="areacabang" class="form-control" readonly />
+                  </div>
+                  <div class="mb-3">
+                    <label for="regioncabang" class="form-label">REGION <span class="text-danger">*</span></label>
+                    <input type="text" id="regioncabang" name="regioncabang" class="form-control" readonly />
+                  </div>
+                </div>
+                <!-- Step 2: Kelolaan -->
+                <div class="step">
+                  <div class="mb-3">
+                    <label for="kelolaanselect" class="form-label">NASABAH KELOLAAN <span class="text-danger">*</span></label>
+                    <select class="form-control" name="kelolaanselect" id="kelolaanselect">
+                      <option value="" selected disabled>Pilih kelolaan</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="satker" class="form-label">SATUAN KERJA<span class="text-danger">*</span></label>
+                    <select class="form-control" name="satker" id="satkerSelect">
+                      <option value="" selected disabled>Pilih Satuan Kerja</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="leadscabang" class="form-label">Leads <span class="text-danger">*</span></label>
+                    <input type="text" id="leadscabang" name="leadscabang" class="form-control" readonly />
+                  </div>
+                  <div class="mb-3">
+                    <label for="indikatifcabang" class="form-label">Limit Indikatif <span class="text-danger">*</span></label>
+                    <input type="text" id="indikatifcabang" name="indikatifcabang" class="form-control" readonly />
+                  </div>
+                </div>
+                <!-- Step 3: input nasabah -->
+                <div class="step">
+                  <div class="mb-3">
+                    <label for="namanasabah" class="form-label">NAMA NASABAH <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="namanasabah" id="namanasabah" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jabatannasabah" class="form-label">JABATAN NASABAH <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="jabatannasabah" id="jabatannasabah" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="nomorhpnasabah" class="form-label">NOMOR HP NASABAH <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="nomorhpnasabah" id="nomorhpnasabah" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="minat" class="form-label">APAKAH NASABAH BERMINAT ?<span class="text-danger">*</span></label
+                    ><br />
+                    <input type="radio" id="berminat" name="minat" value="BERMINAT" required />
+                    <label for="berminat">Berminat</label><br />
+                    <input type="radio" id="belumberminat" name="minat" value="BELUM BERMINAT" required />
+                    <label for="belumberminat">Belum Berminat</label><br />
+                  </div>
+
+                  <div class="mb-3" id="pilihanradio"></div>
+                </div>
+                <!-- Step 4: Input pic -->
+                <div class="step">
+                  <div class="mb-3">
+                    <label for="namapic" class="form-label">Nama PIC <span class="text-danger">*</span></label>
+                    <input class="form-control" type="text" name="namapic" id="namapic" />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jabatanpic" class="form-label">Jabatan PIC <span class="text-danger">*</span></label>
+                    <select class="form-control" name="jabatanpic" id="jabatanpic">
+                      <option selected disabled>---- Pilih Jabatan ----</option>
+                      <option value="Branch Manager">Branch Manager</option>
+                      <option value="Branch Sales">Branch Sales</option>
+                      <option value="Manager">Manager</option>
+                      <option value="Customer Service Officer">Customer Service Officer</option>
+                    </select>
+                  </div>
+                  <div class="mb-5">
+                    <label for="bukti" class="form-label">Bukti Kunjungan <span class="text-danger">*</span></label>
+                    <input class="form-control" type="file" name="bukti" id="bukti" accept="image/*" />
+                  </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="mb-3">
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="hide" id="hide" style="display: none">
+                        <button class="btn btn-danger d-grid w-100" type="button" id="prevBtn">Sebelumnya</button>
+                      </div>
+                    </div>
+                    <div class="col-lg-8">
+                      <div class="hideberikut" id="hideberikut">
+                        <button class="btn btn-primary d-grid w-100" type="button" id="nextBtn">Berikutnya</button>
+                      </div>
+                      <div class="hidesubmit" id="hidesubmit">
+                        <button class="btn btn-success d-grid w-100" type="submit" id="submitBtn">Submit</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/bootstrap.js"></script>
+    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.js"
+      integrity="sha512-ZHzbWDQKpcZxIT9l5KhcnwQTidZFzwK/c7gpUUsFvGjEsxPusdUCyFxjjpc7e/Wj7vLhfMujNx7COwOmzbn+2w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="js/script.js"></script>
+    <script src="js/step.js"></script>
+
+    <script>
+      function checkNotificationStatus() {
+        // Menentukan nama callback function
+        var callbackFunctionName = "handleNotification";
+
+        // Membuat elemen script untuk permintaan JSONP
+        var script = document.createElement("script");
+        script.src = "https://bmri.pullpick.com/post/check-notifikasi?callback=" + callbackFunctionName;
+        document.body.appendChild(script);
+      }
+
+      // Fungsi yang akan memproses data dari server
+      function handleNotification(data) {
+        if (data.message) {
+          showNotification(data.message);
+        } else if (data.notfound) {
+          console.log("No notification found");
+        }
+      }
+
+      function showNotification(message) {
+        // Menggunakan Toastify untuk menampilkan notifikasi
+        Toastify({
+          text: message,
+          duration: 3000,
+          close: true,
+          gravity: "top",
+          position: "right",
+        }).showToast();
+      }
+
+      $(document).ready(function () {
+        checkNotificationStatus();
+      });
+    </script>
   </body>
 </html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Success</title>
+    <style>
+      body {
+        font-family: tahoma;
+      }
+      .container,
+      .container .message,
+      .container .message .close,
+      .container .buttons {
+        position: absolute;
+      }
+      .container .message,
+      .container .buttons {
+        left: 0;
+        right: 0;
+      }
+      .container {
+        background-color: #3b4960;
+        width: 700px;
+        height: 350px;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+      .container .message {
+        margin: 0 auto;
+        width: 580px;
+        height: 100%;
+        background-color: #24d393;
+        top: -137px;
+      }
+      .container,
+      .message {
+        border-radius: 20px;
+      }
+      .container .message .close {
+        top: 6px;
+        right: 6px;
+        font-size: 30px;
+        background-color: #1bc59b;
+        color: #fff;
+        border-radius: 50%;
+        text-decoration: none;
+        font-weight: bold;
+        width: 38px;
+        height: 38px;
+        text-align: center;
+      }
+      .container .message i,
+      h2,
+      p {
+        text-align: center;
+        margin-top: 80px;
+        color: #fff;
+        padding: 5px;
+      }
+      .container .message h2,
+      p {
+        margin: 0;
+      }
+      .container .message i {
+        display: block;
+      }
+      .container .message h2 {
+        font-size: 50px;
+      }
+      .container .message p {
+        font-size: 25px;
+      }
+
+      .container .buttons {
+        bottom: 40px;
+        text-align: center;
+      }
+      .container .buttons button:first-child,
+      .container .buttons button:last-child {
+        background-color: #6c83a2;
+        border: none;
+        color: #fff;
+        padding: 10px;
+        font-size: 30px;
+        border-radius: 30px;
+        width: 230px;
+        margin-right: 10px;
+        font-family: arial;
+      }
+      .container .buttons button:last-child {
+        background-color: #ff8e49;
+      }
+      .loading-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 45vh;
+      }
+
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #3498db;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="message" id="pop">
+        <a href="#" class="close">&times;</a>
+        <i class="fa fa-cloud-upload fa-5x"></i>
+        <h2>Success &#33;</h2>
+        <p>Data Berhasil di Simpan</p>
+        <div class="loading-container">
+          <div class="loader"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Tunggu selama 3 detik
+      setTimeout(function () {
+        // Arahkan ke URL yang ditentukan
+        window.location.href = "https://bmriform.github.io/";
+      }, 2000);
+    </script>
+  </body>
+</html>
